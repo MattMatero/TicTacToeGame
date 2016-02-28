@@ -33,7 +33,7 @@ module TicTacToe
     end
 
     def to_s
-      @data.map { |row| row.map { |e| e || ' ' }.join('|') }.join('\n')
+      @data.map { |row| row.map { |e| e || ' ' }.join('|') }.join("\n")
     end
 
     def intersecting_lines(r1, c1)

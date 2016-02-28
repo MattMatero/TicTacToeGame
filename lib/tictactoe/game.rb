@@ -47,15 +47,25 @@ module TicTacToe
       @game_over = true
     end
 
+    def replay
+      puts 'Play Again? Y/N'
+      response = gets.chomp!
+      if 'Y' == response
+        @game_over = false
+        play
+      else
+        puts 'Bye!'
+      end
+    end
+
     def move_input
-      print '\n>>(row col) ' 
+      print "\n" + '>>(row col) ' 
       response = gets
       
       row, col = response.chomp.split.map { |e| e.to_i }
       puts
 
       [row, col]
-      end
     end
   end
 end
