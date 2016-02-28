@@ -20,12 +20,12 @@ module TicTacToe
     def [](row, col)
       @data.fetch(row).fetch(col)
     rescue IndexError
-      raise InvalidRequest, "Position is not within the grid"
+      raise InvalidRequest, 'Position is not within the grid'
     end
 
     def []=(row, col, marker)
       if self[row, col]
-        raise InvalidRequest, "Position is already occupied"
+        raise InvalidRequest, 'Position is already occupied'
       end
 
       @data[row][col] = marker
@@ -33,7 +33,7 @@ module TicTacToe
     end
 
     def to_s
-      @data.map { |row| row.map { |e| e || " " }.join("|") }.join("\n")
+      @data.map { |row| row.map { |e| e || ' ' }.join('|') }.join('\n')
     end
 
     def intersecting_lines(r1, c1)

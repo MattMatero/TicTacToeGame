@@ -19,8 +19,8 @@ module TicTacToe
         show_board  
 
         check_move { |error_message| puts error_message if @player == @current_player}
-        check_win  { puts "#{current_player} wins" }
-        check_draw { puts "It's a tie" }
+        check_win  { puts '#{current_player} wins' }
+        check_draw { puts 'It\'s a tie' }
       end
       show_board
     end
@@ -48,18 +48,13 @@ module TicTacToe
     end
 
     def move_input
-      print "\n>>(row col) "
+      print '\n>>(row col) ' 
       response = gets
       
-      case response
-      when /quit/i
-        puts "Wimp!"
-        @game_over = true
-      else
-        row, col = response.chomp.split.map { |e| e.to_i }
-        puts
+      row, col = response.chomp.split.map { |e| e.to_i }
+      puts
 
-        [row, col]
+      [row, col]
       end
     end
   end
