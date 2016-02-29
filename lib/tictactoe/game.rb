@@ -10,9 +10,9 @@ module TicTacToe
       @comp_player = TicTacToe::Computer.new
     end
 
-    attr_reader :board, :players, :game_over
-    attr_accessor :player, :comp_player, :current_player
-    
+    attr_reader :board, :players, :game_over, :current_player
+    attr_accessor :player, :comp_player
+
     def play
       select_player
       until @game_over == true do
@@ -20,7 +20,7 @@ module TicTacToe
         show_board  
 
         check_move { |error_message| puts error_message if @player == @current_player}
-        check_win  { puts '#{current_player} wins' }
+        check_win  { puts "#{current_player} wins" }
         check_draw { puts 'It\'s a tie' }
       end
       show_board
