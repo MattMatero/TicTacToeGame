@@ -10,8 +10,9 @@ module TicTacToe
       @comp_player = TicTacToe::Computer.new
     end
 
-    attr_reader :board, :players, :current_player, :game_over, :player, :comp_player
-
+    attr_reader :board, :players, :game_over
+    attr_accessor :player, :comp_player, :current_player
+    
     def play
       select_player
       until @game_over == true do
@@ -27,7 +28,7 @@ module TicTacToe
 
     def select_player
       puts 'Are you X or O?'
-      @player = gets.chomp.to_sym
+      @player = $stdin.gets.chomp.to_sym
       until [:X,:O].include? @player
         puts 'Incorrect Selection, try again.'
         @player = gets.chomp.to_sym
@@ -49,7 +50,7 @@ module TicTacToe
 
     def replay
       puts 'Play Again? Y/N'
-      response = gets.chomp!
+      response = $stdin.gets.chomp!
       if 'Y' == response
         @game_over = false
         play
@@ -60,7 +61,7 @@ module TicTacToe
 
     def move_input
       print "\n" + '>>(row col) ' 
-      response = gets
+      response = $stdin.gets
       
       row, col = response.chomp.split.map { |e| e.to_i }
       puts

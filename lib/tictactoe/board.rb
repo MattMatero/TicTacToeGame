@@ -15,7 +15,7 @@ module TicTacToe
       @last_move = nil
     end
 
-    attr_reader :last_move
+    attr_reader :last_move, :data
 
     def [](row, col)
       @data.fetch(row).fetch(col)
